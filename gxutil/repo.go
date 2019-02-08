@@ -35,6 +35,7 @@ func (pm *PM) FetchRepo(rpath string, usecache bool) (map[string]string, error) 
 
 var ErrNotFound = errors.New("cache miss")
 
+// ResolveRepoName; 
 // TODO: once on ipfs 0.4.0, use the files api
 func (pm *PM) ResolveRepoName(name string, usecache bool) (string, error) {
 	if usecache {
@@ -90,6 +91,7 @@ func CheckCacheFile(name string) (string, bool, error) {
 	return "", false, nil
 }
 
+// cacheSet; 
 // TODO: think about moving gx global files into a .config/local type thing
 func (pm *PM) cacheSet(name, resolved string) error {
 	home, err := hd.Dir()

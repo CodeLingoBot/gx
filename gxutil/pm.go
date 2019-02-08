@@ -847,7 +847,7 @@ func (dq *DependencyQueue) Pop() *Dependency {
 	return dep
 }
 
-// Fetch all of the dependencies of this package (direct and transitive
+// fetchDependencies; all of the dependencies of this package (direct and transitive
 // ones). Use (if possible) `maxGoroutines` goroutines working in parallel
 // (coordinated by this function). Each new dependency fetched is another
 // package with more (potentially new) dependencies that may also be fetched.
@@ -964,7 +964,7 @@ func (pm *PM) fetchDependencies(pkg *Package, location string) error {
 	return firstFetchErr
 }
 
-// Call the `post-install` hook on each of the dependencies of this package
+// dependenciesPostInstall; Call the `post-install` hook on each of the dependencies of this package
 // (direct or transitive).
 //
 // TODO: This function could also use the same parallel goroutine processing
